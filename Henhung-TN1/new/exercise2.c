@@ -91,18 +91,22 @@ int main(void){
 }
 
 void interupt0_handler() interrupt 0
-{	
+{	EA =0;
 	if (current_function <= 1)
 		current_function = 4;
 	else
    		current_function = current_function - 1;
+	delay(100);
+	EA = 1;
 }
 
 void interupt1_handler() interrupt 2
-{
+{	EA =0;
 	if (current_function >= 4)
 		current_function = 1;
 	else
    		current_function = current_function + 1;
+	delay(100);
+	EA = 1;
 }
 
